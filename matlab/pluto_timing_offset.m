@@ -1,5 +1,6 @@
+clear; clc;
 % User tunable (samplesPerSymbol>=decimation)
-samplesPerSymbol = 12; decimation = 4;
+% samplesPerSymbol = 12; decimation = 4;
 %% System set up
 % Set up radio
 tx = sdrtx('Pluto','Gain',-10);
@@ -36,5 +37,4 @@ for index = 0:300
     % Visualize constellation
     cd(o);
     pause(0.1);
-end
-
+% end

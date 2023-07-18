@@ -1,11 +1,11 @@
-
+clear all;
 % Show Barker Autocorrelations search example
 sequenceLength = 13;
 hBCode = comm.BarkerCode('Length',7,'SamplesPerFrame', sequenceLength);
 seq = step(hBCode);
 gapLen = 100;
 gapLenEnd = 200;
-gen = @(Len) 2*randi([0 1],Len,1)-1;
+gen = @(Len) randi([0 1],Len,1)+1;
 y = [gen(gapLen); seq; gen(gapLenEnd)];
 corr = xcorr(y,seq);
 L = length(corr);
@@ -69,6 +69,3 @@ h=quiver(p1(1),p1(2),dp(1),dp(2),0, 'Color','k');
 text(dp(1)/4,25, 'Zeros Lag','FontSize',11)
 legend([h6,h4],'True Peak Position','Estimated Peak Position','Location','Best');
 hold off;
-
-
-
